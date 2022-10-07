@@ -25,9 +25,9 @@ function Post({ fecha, img, description, user, comments, likes}) {
                     </div>
                     <p className="d-flex user">{user}</p>
                     <p className="d-flex">{description}</p>
-                    <a className="d-flex none_a">
+                    <p className="d-flex none_a">
                         <i className="bi bi-chat-right"></i>&nbsp;Comments ({comments})
-                    </a>
+                    </p>
                 </div>
             </div>
         </div>
