@@ -8,10 +8,32 @@
   font-weight: bold;
 }
 
+.timePost {
+  font-size: 15px;
+  color: darkgray;
+}
+
 .like {  
   text-decoration: none;
   background-color: #d7373f;
   color: white;
-  padding: 0.4rem;
+  padding: 0.3rem 0.3rem 0.3rem 0.3rem;
   border-radius: 4px;
+  font-size: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .like {  
+    text-decoration: none;
+    background-color: #d7373f;
+    color: white;
+    padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+    border-radius: 4px;
+    font-size: 11px;
+  }
+
+  .timePost {
+    font-size: 11px;
+    color: darkgray;
+  }
 }
