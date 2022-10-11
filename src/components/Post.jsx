@@ -1,9 +1,15 @@
 import moment from 'moment';
+import { useState } from 'react';
 
 // var fecha = new Date("2022-10-02 19:00:00").getTime();
 // var time =  moment(fecha).fromNow();
+function Post({ img, fecha, description, user, comments, likes}) {
 
-function Post({ img, fecha, description, user, comments, likes }) {
+    const [like, setLike] = useState(false);
+
+    function Likes(val) {
+      setLike(val);       
+    }
 
     let kLikes = '';
     if (likes >= 1000) {
@@ -11,6 +17,7 @@ function Post({ img, fecha, description, user, comments, likes }) {
     } else {
         kLikes = likes;
     }
+
 
     fecha = Math.floor(new Date(fecha).getTime());
     let countComments = comments.length;
@@ -22,10 +29,24 @@ function Post({ img, fecha, description, user, comments, likes }) {
                 <div className="card-body">
                     <div className="d-flex">
                         <p className="me-auto timePost">{moment(fecha).fromNow()}</p>
-                        <p className="like">
-                            <i className="bi bi-heart-fill"></i>
-                            &nbsp;{kLikes}
-                        </p>
+                        <div>
+                            {like === false
+                            ? 
+                            <p onClick={()=> {
+                                Likes(true)
+                                }} className="d-flex justify-content-end like_heart">
+                                <i className="bi bi-heart"></i>
+                            </p>
+                            :
+                            <p onClick={()=> {
+                                Likes(false)
+                                }} className="d-flex justify-content-end like">
+                                <i className="bi bi-heart-fill"></i>
+                                &nbsp;{kLikes}
+                            </p>
+                            }                        
+                            
+                        </div>
                     </div>
                     <p className="d-flex user">{user}</p>
                     <p className="d-flex">{description}</p>

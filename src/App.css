@@ -14,22 +14,45 @@
 }
 
 .like {  
-  text-decoration: none;
+  /* text-decoration: none; */
   background-color: #d7373f;
   color: white;
+  padding: 0.3rem 0.3rem 0.3rem 0.5rem;
+  border-radius: 4px;
+  font-size: 20px;
+}
+
+.like_heart {
+  /* text-decoration: none; */
+  background-color: white;
+  color: black;
   padding: 0.3rem 0.3rem 0.3rem 0.3rem;
   border-radius: 4px;
-  font-size: 15px;
+  font-size: 20px;
 }
+
+.cajaTexto {
+  width: 200px;
+}
+
 
 @media only screen and (min-width: 768px) {
   .like {  
     text-decoration: none;
     background-color: #d7373f;
     color: white;
+    padding: 0.3rem 0.3rem 0.3rem 0.5rem;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  .like_heart {
+    /* text-decoration: none; */
+    background-color: white;
+    color: black;
     padding: 0.3rem 0.3rem 0.3rem 0.3rem;
     border-radius: 4px;
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .timePost {
