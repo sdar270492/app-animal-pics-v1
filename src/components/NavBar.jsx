@@ -1,4 +1,6 @@
-function NavBar({showProfile}) {
+function NavBar({showProfile/*, user*/}) {
+
+  // console.log(user.avatar);
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
@@ -12,7 +14,13 @@ function NavBar({showProfile}) {
         <div className="" 
           onClick={()=>{showProfile(true)}}
           >
-          <img src="https://www.pngitem.com/pimgs/m/404-4042710_circle-profile-picture-png-transparent-png.png" width="40" height="40" alt="logo" />
+          {/*!user.avatar
+          ?*/
+          <img src="https://p.kindpng.com/picc/s/285-2855863_a-festival-celebrating-tractors-round-profile-picture-placeholder.png" width="40" height="40" alt="logo" />
+          /*:
+          <img className="rounded-circle" src={user.avatar} width="40" height="40" alt="logo" />          
+          */
+          }
         </div>
       </div>
     </nav>

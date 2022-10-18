@@ -1,4 +1,4 @@
-function SearchBar({ post, filterPost }) {
+function SearchBar({ search, doSearch }) {
     return (
         <input
             className="form-control"
@@ -6,8 +6,8 @@ function SearchBar({ post, filterPost }) {
             name="search"
             id="search"
             placeholder="Search"
-            value={post}
-            onChange={(e) => { filterPost(e.target.value) }}
+            value={search}
+            onChange={(e) => { doSearch(e.target.value) }}
         />
     );
 }
