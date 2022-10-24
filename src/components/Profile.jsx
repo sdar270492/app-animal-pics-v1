@@ -1,4 +1,15 @@
-function Profile({profile}) {
+import { useNavigate } from "react-router-dom";
+
+function Profile({ profile, token, setToken }) {
+
+    const navigate = useNavigate();
+    function LogOut() {      
+        setToken(null);        
+        if (token) {
+            localStorage.removeItem('token');
+            navigate("/login");
+        }
+    }
 
     return (
         <div className="mt-5">
@@ -20,6 +31,12 @@ function Profile({profile}) {
                         {profile.bio}
                     </p>
                 </div>
+            </div>
+            <div className="d-flex justify-content-center">
+                <button onClick={()=> { LogOut()}} 
+                        className="btn btn-danger">
+                    Salir
+                </button>
             </div>
         </div>
 

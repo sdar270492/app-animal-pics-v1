@@ -14,15 +14,21 @@ function App() {
   function doSearch(text) {
     setSearch(text);
   }
-
+  // console.log(token);
   return (
     <div className="App">
       <NavBar token={token} profile={profile}/>
       <div className='container mt-2'>
         <Routes>
-          <Route path="/" element={<Home search={search} doSearch={doSearch}/>} />
+          <Route path="/" element={
+            !token
+            ?
+            <ShowLogin setToken={setToken} setProfile={setProfile} />
+            :
+            <Home search={search} doSearch={doSearch}/>
+          } />
           <Route path="/posts" element={<Home search={search} doSearch={doSearch}/>} />
-          <Route path="/profile" element={<ShowProfile profile={profile} />} />
+          <Route path="/profile" element={<ShowProfile profile={profile} token={token} setToken={setToken}/>} />
           <Route path="/login" element={<ShowLogin setToken={setToken} setProfile={setProfile} />} />
         </Routes>        
       </div>

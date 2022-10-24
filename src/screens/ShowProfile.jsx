@@ -1,9 +1,9 @@
 import Profile from "../components/Profile";
 
-function ShowProfile({profile}) {
+function ShowProfile({profile, token, setToken}) {
     return (
         <div>
-            <Profile profile={profile}/>
+            <Profile profile={profile} token={token} setToken={setToken}/>
         </div>
     )
 }

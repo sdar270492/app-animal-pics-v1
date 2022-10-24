@@ -10,8 +10,6 @@ function Home({ search, doSearch }) {
   useEffect(() => {
     if (!userIsInactive) {
       navigate("/login");
-    }else {
-      
     }
   }, [userIsInactive]);
 
