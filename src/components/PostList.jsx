@@ -7,11 +7,9 @@ const initialState = [];
 function PostList({ search }) {
 
     const [posts, setPosts] = useState(initialState);
-    // console.log(posts);
     useEffect(() => {
 
         getPosts().then((posts) => {
-            // console.log(posts);
             setPosts(posts);
         });
 
@@ -27,10 +25,11 @@ function PostList({ search }) {
                         .map((post, i) => (
                             <Post
                                 key={post.id}
+                                id={post.id}
                                 img={post.image}
                                 fecha={post.createdAt}
                                 description={post.text}
-                                user={'@'+post.author.username}
+                                user={'@' + post.author.username}
                                 comments={post.comments}
                                 likes={post.likes}
                             />

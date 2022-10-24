@@ -1,25 +1,33 @@
-function NavBar({showProfile/*, user*/}) {
+import { Link } from 'react-router-dom';
 
-  // console.log(user.avatar);
+function NavBar({ token,  profile}) {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
-        <div className="navbar-brand"
-            onClick={()=>{showProfile(false)}}
-            >
-          <i className="bi bi-shop"></i> App Animal Pics
-        </div>
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        </ul>
-        <div className="" 
-          onClick={()=>{showProfile(true)}}
-          >
-          {/*!user.avatar
-          ?*/
-          <img src="https://p.kindpng.com/picc/s/285-2855863_a-festival-celebrating-tractors-round-profile-picture-placeholder.png" width="40" height="40" alt="logo" />
-          /*:
-          <img className="rounded-circle" src={user.avatar} width="40" height="40" alt="logo" />          
-          */
+        <Link className="navbar-brand" to="/">
+          three pics
+        </Link>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          {!token ?
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
+              <li className="nav-item">
+                <Link className="nav-link active" to="/login">Login</Link>
+              </li>
+            </ul>
+            :
+            <>
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
+              <li className="nav-item">
+                <Link className="nav-link active" to="/posts">Posts</Link>
+              </li>
+            </ul>
+
+            <div>
+              <Link to="/profile">
+                <img className="rounded-circle" src={profile.avatar} width="40" height="40" alt="logo" />
+              </Link>
+            </div>
+            </>
           }
         </div>
       </div>

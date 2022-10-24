@@ -1,8 +1,13 @@
 import { useState } from "react";
-import { login } from "../service/data-service";
+import { useNavigate } from "react-router-dom";
+import { login, getUserLogin } from "../service/data-service";
 
-function Login({ setToken }) {
+function Login({ setToken, setProfile }) {
   const [error, setError] = useState();
+  const navigate = useNavigate();
+
+  // id resulto del JWT del token
+  const id = '6136944fcd79ba24707e2f82';
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -12,10 +17,21 @@ function Login({ setToken }) {
       .then((data) => {
         localStorage.setItem("token", data.token);
         setToken(data.token);
+
+        getUserLogin(id)
+          .then((data) => {
+            setProfile(data);
+          })
+          .catch((err) => {
+            setError(err.response.data.message);
+          });
+
+        navigate("/posts");
       })
       .catch((err) => {
         setError(err.response.data.message);
       });
+
   }
 
   return (

@@ -1,14 +1,16 @@
 import moment from 'moment';
 import { useState } from 'react';
+import { addLike } from '../service/data-service';
 
 // var fecha = new Date("2022-10-02 19:00:00").getTime();
 // var time =  moment(fecha).fromNow();
-function Post({ img, fecha, description, user, comments, likes}) {
+function Post({ id, img, fecha, description, user, comments, likes}) {
 
     const [like, setLike] = useState(false);
 
     function Likes(val) {
       setLike(val);       
+      addLike(id);
     }
 
     let kLikes = '';
@@ -21,6 +23,10 @@ function Post({ img, fecha, description, user, comments, likes}) {
 
     fecha = Math.floor(new Date(fecha).getTime());
     let countComments = comments.length;
+
+    // useEffect(() => {
+
+    // }, [])
 
     return (
         <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12 mt-3">
